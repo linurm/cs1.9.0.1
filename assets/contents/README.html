@@ -1,0 +1,602 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Loc - Lua Objective-C</title>
+
+</head>
+<body>
+<h1>Loc - Lua Objective-C</h1>
+
+<hr />
+
+<p>Loc Library provides a bridge of type conversion between Lua and Objective-C. It handles type conversion and function reflection, hence we can simply reqeust Objective-C property, call Objective-C function in Lua with Lua syntax.</p>
+
+<p>Values of types listed below are <strong>copied</strong> to the corresponding
+types on conversion in each direction. For userdata type, Loc will register metatable for the relative Objective-C type to reflect Lua methods to instance methods.</p>
+
+<pre>
+<table width="100%">
+ <thead>
+  <tr>
+     <th>Objective-C type</th>
+     <th>Lua type</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+         <td>nil</td>
+     <td>nil</td>
+  </tr>
+  <tr>
+          <td>NSNull</td>
+     <td>nil</td>
+  </tr>
+  <tr>
+     <td>NSString</td>
+     <td>string</td>
+  </tr>
+  <tr>
+     <td>NSNumber</td>
+     <td>number, boolean</td>
+  </tr>
+  <tr>
+     <td>NSDictionary</td>
+     <td>table, userdata</td>
+  </tr>
+  <tr>
+     <td>NSArray</td>
+     <td>table, userdata</td>
+  </tr>
+  <tr>
+     <td>NSObject</td>
+     <td>userdata</td>
+  </tr>
+  <tr>
+     <td>Class</td>
+     <td>userdata</td>
+  </tr>
+ </tbody>
+</table>
+</pre>
+
+
+<h2>Syntax and Usage</h2>
+
+<h3>Regiester Loc</h3>
+
+<p>If we want to use Loc in project, we just call following method to register Loc Library to <code>lua_State</code>:</p>
+
+<pre><code>loc_registerlib(L);
+</code></pre>
+
+<p>Now we are good to play Objective-C in Lua.</p>
+
+<h3>Push object to Lua stack</h3>
+
+<p>Loc extends NSObject with <code>- (BOOL)pushToLuaState:(lua_State *)L</code> via <a href="https://developer.apple.com/library/ios/documentation/general/conceptual/devpedia-cocoacore/Category.html">Category</a>, so we can call this function to push object to stack of given <code>lua_State</code></p>
+
+<pre><code>[obj pushToLuaState:L];
+</code></pre>
+
+<p>If <code>obj</code> is <code>nil</code>, it pushes nothing to stack, which may causes problem, so it is recommended to call following method to push object, if object may be nil:</p>
+
+<pre><code>loc_pushid(L, obj);
+</code></pre>
+
+<p>The reset process is the same as working with other type (e.g.: string, number, boolean) which is pushed to stack. We can set value to global with <code>void lua_setglobal (lua_State *L, const char *var)</code>, or call a Lua function with the object as arguments.</p>
+
+<h3>Fetch object from Lua stack</h3>
+
+<p>Loc provides similar "to" method as <code>lua_tostring</code>,
+<code>lua_tonumber</code> in Lua, to fetch object from Lua stack:</p>
+
+<pre><code>id loc_toid(lua_State *L, int idx)
+</code></pre>
+
+<p>The method automatically returns associated NSObject instance base on above table.</p>
+
+<p>If we want to gurantee the value is not primitive, which must be Objetive-C object, we could use similar "check" method:</p>
+
+<pre><code>id loc_checkuserdata(lua_State *L, int idx);
+id loc_checkclass(lua_State *L, int idx, Class clazz);
+
+NSString *loc_checkstring(lua_State *L, int idx);
+</code></pre>
+
+<p>We can also compulsorily convert Lua table to NSArray or NSDictionary:</p>
+
+<pre><code>NSArray *loc_toarray(lua_State *L, int idx);
+NSDictionary *loc_todictionary(lua_State *L, int idx);
+</code></pre>
+
+<h3>Get property value of object</h3>
+
+<p>When we want to get propety value of object, we can use <strong>colon(:)</strong> syntax, and give property name, and call it as function:</p>
+
+<pre><code>local name = obj:name();
+</code></pre>
+
+<p><strong>dot(.)</strong> syntax does <strong>not</strong> work to access the property.</p>
+
+<h3>Set property value of object</h3>
+
+<p>We can pass new value to property function to set value on it with <strong>colon(:)</strong> syntax:</p>
+
+<pre><code>obj:name('newName');
+</code></pre>
+
+<p>We can also use <strong>dot(.)</strong> syntax to assign new value directly to property:</p>
+
+<pre><code>obj.name = 'newName';
+</code></pre>
+
+<h3>Call method of object</h3>
+
+<p>Getting property is almost the same as call method of object if the method does not have argument. For methods with arguments, Objetive-C method seperate method name into multiple parts, and use colon(:) to delimit name and arguments. The method name use in Lua should be the concatenation of all parts, captalize the character right after colon, remove all colons.</p>
+
+<p>For example, if we define a method in Objective-C like:</p>
+
+<pre><code>- (void)printBool:(BOOL)b string:(NSString *)s andArray:(NSArray *)a
+</code></pre>
+
+<p>In lua we call as:</p>
+
+<pre><code>obj:printBoolStringAndArray(true, 'Hello World', arrObj);
+</code></pre>
+
+<p>If method has return value, we can assign to variable, or pass it to other method as arguments</p>
+
+<pre><code>local sum = obj:addAWithB(21, 7);
+</code></pre>
+
+<p><span style="color:red">ATTENTION: function call should use <strong>colon(:)</strong> syntax like getting property</span></p>
+
+<h3>NSDictionary &amp; NSArray</h3>
+
+<p>Loc does some specialization for <code>NSDictionary</code> and <code>NSArray</code>, as they are Objective-C system collection, and used very often. Intead of use <code>NSInvocation</code> to reflect method call, Loc direct map methods.</p>
+
+<ul>
+<li><code>NSDictioanry</code></li>
+</ul>
+
+
+<pre>
+<table width="100%">
+<thead>
+  <tr>
+     <th>Lua Syntax</th>
+     <th>Mapped Call</th>
+  </tr>
+ </thead>
+   <tbody>
+       <tr>
+           <td>dict:get(key)</td>
+           <td>[dict objectForKey:key]</td>
+       </tr>
+       <tr>
+           <td>dict:set(key, value)</td>
+           <td>[dict setObject:value forKey:key]</td>
+       </tr>
+       <tr>
+           <td>dict:haskey(key)</td>
+           <td>[dict objectForKey:key] != nil</td>
+       </tr>
+       <tr>
+           <td>dict:remove(key)</td>
+           <td>[dict removeObjectForKey:key]</td>
+       </tr>
+       <tr>
+           <td>dict:count()</td>
+           <td>[dict count]</td>
+       </tr>
+   </tbody>
+</table>
+</pre>
+
+
+<ul>
+<li>NSArray</li>
+</ul>
+
+
+<pre>
+<table width="100%">
+<thead>
+  <tr>
+     <th>Lua Syntax</th>
+     <th>Mapped Call</th>
+  </tr>
+ </thead>
+   <tbody>
+       <tr>
+           <td>arr:get(index)</td>
+           <td>[arr objectAtIndex:index-1]</td>
+       </tr>
+       <tr>
+           <td>arr:insert(index, value)</td>
+           <td>[arr insertObject:value atIndex:index-1]</td>
+       </tr>
+       <tr>
+           <td>arr:add(value)</td>
+           <td>[arr addObject:value]</td>
+       </tr>
+       <tr>
+           <td>arr:remove(index)</td>
+           <td>[arr removeObjectAtIndex:index-1]</td>
+       </tr>
+       <tr>
+           <td>arr:count()</td>
+           <td>[arr count]</td>
+       </tr>
+   </tbody>
+</table>
+</pre>
+
+
+<p>To be the same convention as Lua, the <code>index</code> used Lua script is 1-based, and it automatically minus 1 in Objective-C to be 0-based.</p>
+
+<p>Loc also provides <code>totable()</code> method for <code>NSDictioanry</code> and <code>NSArray</code>, it converts instance of <code>NSDictioanry</code> or <code>NSArray</code> to Lua table. However, it only convert one depth level, it does <strong>not</strong> recursively convert keys and values.</p>
+
+<p>With <code>totable()</code>, we could use the result in <a href="http://www.lua.org/manual/5.2/manual.html#pdf-pairs"><code>pairs(t)</code></a> or <a href="http://www.lua.org/manual/5.2/manual.html#pdf-ipairs"><code>ipairs(t)</code></a> to interate content in <code>for</code> loop.</p>
+
+<pre><code>for k,v in pairs(dict:totable()) do  
+    -- iteration body
+end
+
+for i,v in ipairs(arr:totable()) do 
+    -- iteration body 
+end
+</code></pre>
+
+<h3>Loc Lua Library</h3>
+
+<p>Loc provides some auxiliary methods to use in Lua script, all methods are in global <code>loc</code> table. The list below shows the methods we can use Lua:</p>
+
+<ul>
+<li><code>loc.toclass(str)</code>  <br/>
+  returns Objective-C Class with given name, or nil if class can not find.</li>
+<li><code>loc.todictionary(table)</code> <br/>
+  returns NSDictionary object contains all key/value pairs in table.</li>
+<li><code>loc.toarray(table)</code> <br/>
+  returnes NSArray object contains all values in table with sequential numeric indics.</li>
+</ul>
+
+
+<p>We don't use <code>loc.todictionary()</code> very often, as Loc converts table to <code>NSDictionary</code> as default. But if some methods accept NSArray as arguemnts, we need to manually convert table to <code>NSArray</code> with <code>loc.toarray()</code>, then pass to method.</p>
+
+<h2>Tricky Usage</h2>
+
+<h3>Call method of Class</h3>
+
+<p>Loc allows us to call Class method as well, but it limits to method with no arguments. So we could even construct a new object in Lua:</p>
+
+<pre><code>local clazz = loc.toclass('SomeClassName');
+local obj = clazz:alloc():init();
+</code></pre>
+
+<p>It's totally work, but not recommended, because we really do not want Lua to handle Objective-C memory management.</p>
+
+<p>The common usage is call some method to get singleton of a Class:</p>
+
+<pre><code>local obj = clazz:instance();
+</code></pre>
+
+<p>Loc is <strong>not</strong> able to call Class Methods with any argument yet.</p>
+
+<h3>Access property or method with variable</h3>
+
+<p>Lua is scripting language like PHP, Javascript. It can access value of table by variable, not just type in code. Loc support it as well, but not very well.</p>
+
+<p>We can use brackts to access property on Objective-C object, and assign value to it:</p>
+
+<pre><code>local prop = 'name';
+obj[prop] = 'newName';
+</code></pre>
+
+<p>But if we want to get value, we need to call as method, and pass object as first argument:</p>
+
+<pre><code>local name = obj[prop](obj);
+
+local funcName = 'addAWithB';
+obj[funcName](obj, 21, 7);
+</code></pre>
+
+<p>This is just how Lua <strong>dot(.)</strong> syntax work.</p>
+
+<hr />
+
+<p>Supported by <a href="mailto:ider.cs@gmail.com">Ider</a></p>
+</body>
+</html>

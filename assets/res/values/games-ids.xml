@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+  <string name="app_id">322543581711</string>
+  <string name="package_name">com.teamlava.castlestory</string>
+  <string name="achievement_a_bunch_of_friends">CgkIj_ThyLEJEAIQAQ</string>
+  <string name="achievement_leader_of_dragons">CgkIj_ThyLEJEAIQAg</string>
+  <string name="achievement_green_with_envy">CgkIj_ThyLEJEAIQAw</string>
+  <string name="achievement_make_a_wish">CgkIj_ThyLEJEAIQBA</string>
+  <string name="achievement_bright_as_a_diamond">CgkIj_ThyLEJEAIQBQ</string>
+  <string name="achievement_a_dragon_champion">CgkIj_ThyLEJEAIQBg</string>
+  <string name="achievement_all_day_and_all_night">CgkIj_ThyLEJEAIQBw</string>
+  <string name="achievement_graduation">CgkIj_ThyLEJEAIQCA</string>
+  <string name="achievement_a_noble_gift">CgkIj_ThyLEJEAIQCQ</string>
+  <string name="achievement_unbeatable">CgkIj_ThyLEJEAIQCg</string>
+  <string name="leaderboard_dragon_collector">CgkIj_ThyLEJEAIQCw</string>
+</resources>
